@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+            //checking if user logged in if yes let him access page else auto redirect to index/login page
+            if(!sessionStorage.getItem("isUserLogged") && !sessionStorage.getItem("username")){
+                window.location.href ="index.html";
+            }
+    </script>
+</head>
+<body>
+
+    <div>
+        Welcome to dashboard
+        <span style="cursor:pointer;color:red;float: right;" onclick="logout()">Logout</span>
+    </div>
+
+
+    <script>
+        function logout(){
+            //checking is session set if yes then logot
+            if(sessionStorage.getItem("isUserLogged") && sessionStorage.getItem("username")){
+                sessionStorage.removeItem("isUserLogged");
+                sessionStorage.removeItem("username");
+                window.location.href ="index.html";
+            }
+        }
+    
+    </script>
+    
+</body>
+</html>

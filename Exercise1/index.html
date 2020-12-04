@@ -5,7 +5,38 @@
     </head>
     <body>
         <div>
-            hello this is div 1
+           <form action="dashboard.html" method="post" onsubmit="return checkLogin();"> 
+               <div>
+                   <span>Enter Name</span>
+                   <input type="text" name="name" id="username"/>
+               </div>
+               <div>
+                    <span>Enter Password</span>
+                    <input type="password" name="password" id="pass"/>
+                </div>
+                <div>
+                    <input type="submit" value="Login"/>
+                </div>
+           </form>
         </div>
+
+<script>
+    function checkLogin(){
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("pass").value;
+        if(user == "gurpreet" && pass == "Demo@123"){
+            // save some auth check data in cookies or local storage or session to recognize that user is logged
+            sessionStorage.setItem("isUserLogged",true);
+            sessionStorage.setItem("username",user);
+            return true;
+        }
+        else{
+            alert("Invalid Username/Password");
+            return false;
+        }
+    }
+</script>
+
+
     </body>
 </html>
